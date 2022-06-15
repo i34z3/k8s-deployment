@@ -16,23 +16,24 @@ kubectl port-forward pod/nginx 9090:80
 
 curl http://localhost:9090
 
-# delete pod
-
 kubectl delete pod nginx
 
-# create replicaset (undeleted pod)
+# create replicaset
 
 kubectl apply -f replicaset/nginx-rs.yaml
 
 kubectl get po
-NAME          READY   STATUS    RESTARTS   AGE
-nginx-9hlzb   1/1     Running   0          69s
 
-kubectl delete pod nginx-9hlzb
-
-kubectl delete pod nginx-9hlzb 
-pod "nginx-9hlzb" deleted
+kubectl delete pod nginx-id
 
 kubectl get po
-NAME          READY   STATUS    RESTARTS   AGE
-nginx-qzvs9   1/1     Running   0          5s
+
+# create deployment (versions)
+
+kubectl apply -f src/deployment/nginx-deployment.yaml
+
+kubectl get po
+
+# run app go
+
+go run main.go
