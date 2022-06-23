@@ -37,3 +37,9 @@ kubectl get po
 # run app go
 
 go run main.go
+
+# terraform 
+
+terraform init
+
+terraform apply
